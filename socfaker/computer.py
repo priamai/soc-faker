@@ -13,6 +13,7 @@ class Computer(BaseClass):
     """
     _name = None
     _os = None
+    _ipv4 = None
     __bit_shift = {
         "B": 0,
         "kb": 7,
@@ -126,4 +127,9 @@ class Computer(BaseClass):
         Returns:
             str: A random operating system ipv4 address
         """
-        return Network().private_ipv4
+        self._ipv4 = Network().private_ipv4
+        return self._ipv4
+    
+    @ipv4.setter
+    def ipv4(self, value):
+        self._ipv4 = value
