@@ -16,7 +16,15 @@ class BaseClass(object):
                 if isinstance(getattr(type(self), item), property):
                     return_dict[item] = getattr(self, item)
         return str(return_dict)
-
+    
+    def to_dict(self):
+        return_dict = {}
+        for item in dir(self):
+            if not item.startswith('_') and item not in self.__dict__ and not item.startswith('random') and not item.startswith('uuid'):
+                if isinstance(getattr(type(self), item), property):
+                    return_dict[item] = getattr(self, item)
+        return return_dict
+    
     def __repr__(self):
         return_dict = {}
         for item in dir(self):
