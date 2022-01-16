@@ -127,7 +127,7 @@ class Computer(BaseClass):
         Returns:
             str: A random operating system ipv4 address
         """
-        if not self._os:
+        if not self._ipv4:
             self._ipv4 = Network().private_ipv4
         return self._ipv4
     
